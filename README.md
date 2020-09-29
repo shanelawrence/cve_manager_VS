@@ -43,7 +43,7 @@ https://github.com/aatlasis/cve_manager/blob/master/CVE%20Manager.pdf
 1. Setup python:  
 Requires python 3  
 Do yourself a favor and install pip3 also  
-	pip3 install psycopg2, openpyxl, pandas  
+    *pip3 install psycopg2, openpyxl, pandas*  
 Required includes:  
 psycopg2 - data science libs  
 pandas - data manipulation libs (dependency on openpyxl)  
@@ -54,36 +54,36 @@ Install the latest postgreql database for your distribution.
 as root, systemctl enable postgresql  
 systemctl start postgresql  
 then set a password for postgresql user by:  
-> sudo -u postgres psql  
-> \l lists databases  
-> \du lists users  
-> CREATE USER username WITH PASSWORD 'password';  
+    *sudo -u postgres psql*  
+    *\l lists databases*  
+    *\du lists users*  
+    *CREATE USER username WITH PASSWORD 'password';*  
   
 1. Use cve_manager to create the database:  
 The user must have create privlileges   
-> ./cve_manager.py -u postgres -ps $PASSWORD -server localhost -db $DB -ow $USER -cd  
+*./cve_manager.py -u postgres -ps $PASSWORD -server localhost -db $DB -ow $USER -cd*  
   
 1. Use cve_manager.py to create the schema  
 The user must have create privileges  
-> ./cve_manager.py -u postgres -ps $PASSWORD -server localhost -db $DB -ct  
+*./cve_manager.py -u postgres -ps $PASSWORD -server localhost -db $DB -ct*  
   
 1. Use cve_manager to download the CVE and CPE data  
-> ./cve_manager.py -u $user -ps $pass -host $host -db $db -d -p -csv  
+*./cve_manager.py -u $user -ps $pass -host $host -db $db -d -p -csv*  
   
 1. Manually download and unzip the CWE data  
-> wget https://cwe.mitre.org/data/csv/1000.csv.zip  
-> unzip 1000.csv.zip  
+*wget https://cwe.mitre.org/data/csv/1000.csv.zip*  
+*unzip 1000.csv.zip*  
   
 1. Use cve_manager to import the NIST CVE and CPE data into the database  
-> ./cve_manager.py -u $user -ps $pass -host $host -db $db -idb -p  
+*./cve_manager.py -u $user -ps $pass -host $host -db $db -idb -p*  
   
 1. Use cve_manager to import the CWE data into the database  
-> ./cve_manager.py -u $user -ps $pass -host $host -db $db -icwe 1000.csv  
+*./cve_manager.py -u $user -ps $pass -host $host -db $db -icwe 1000.csv*  
   
 1. Run an example report.  
 This example creates a csv and xlsx of the vulnerabilities and products they affect,   
 only rated severity 7.0 or greater, created or updated since 01 July 2020  
-> ./cve_manager.py -u $user -ps $password -host $host -db $db -sc 7.0 -dt 2020-07-01 -cpe cpe -csv -o $reports  
+*./cve_manager.py -u $user -ps $password -host $host -db $db -sc 7.0 -dt 2020-07-01 -cpe cpe -csv -o $reports*  
   
 1. Email the xlsx reports  
 Modify email_xlsx_attach.py for your smtp relay, sender, recipients, and reports directory.  
