@@ -1,4 +1,4 @@
-#  A shell script to use if you want the same reports every day
+#  A shell script to use if you want different reports on Tues-Fri
 
 ## vars
 user=<user>		#-- Postgres database user
@@ -41,7 +41,6 @@ echo "Importing new data into the local database"
 ./cve_manager.py -u $user -ps $pass -host $host -db $db -icwe $csv/1000.csv
 
 #--create daily csv and xlsx
-
 #echo "List of new all CVEs created or updated since Yesterday, $yesterday :"
 #./cve_manager.py -u $user -ps $pass -host $host -db $db -sc 0.1 -dt $yesterday -csv -o $reports
 #echo "-------------------------------------------------"
@@ -54,7 +53,7 @@ echo "Importing new data into the local database"
 #./cve_manager.py -u $user -ps $pass -host $host -db $db -sc 10.0 -dt $yesterday -cpe cpe -csv -o $reports
 #echo "-------------------------------------------------"
 
-echo "List of sev 9.8 CVEs created or updated since last week, $lastweek with CPE "
+echo "List of sev 9.8 CVEs created or updated in the past 7 days, since $lastweek with CPE "
 ./cve_manager.py -u $user -ps $pass -host $host -db $db -sc 9.8 -dt $lastweek -cpe cpe -csv -o $reports
 echo "-------------------------------------------------"
 
@@ -66,7 +65,7 @@ echo "-------------------------------------------------"
 #./cve_manager.py -u $user -ps $pass -host $host -db $db -sc 0.1 -dt $lastweek -csv -o $reports
 #echo "-------------------------------------------------"
 
-echo "List of new all CVEs created or updated since last week, $lastweek with CPE:"
+echo "List of new all CVEs created or updated in the last seven days, since $lastweek with CPE "
 ./cve_manager.py -u $user -ps $pass -host $host -db $db -sc 0.1 -dt $lastweek -cpe cpe -csv -o $reports
 echo "-------------------------------------------------"
 
@@ -82,9 +81,9 @@ echo "-------------------------------------------------"
 #./cve_manager.py -u $user -ps $pass -host $host -db $db -sc 0.1 -dt $weekend -cpe cpe -csv -o $reports
 #echo "-------------------------------------------------"
 
-echo "List of sev 7 or greater CVEs created or updated in the last three days, $weekend with CPE "
-./cve_manager.py -u $user -ps $pass -host $host -db $db -sc 7.0 -dt $weekend -cpe cpe -csv -o $reports
-echo "-------------------------------------------------"
+#echo "List of sev 7 or greater CVEs created or updated in the last three days, $weekend with CPE "
+#./cve_manager.py -u $user -ps $pass -host $host -db $db -sc 7.0 -dt $weekend -cpe cpe -csv -o $reports
+#echo "-------------------------------------------------"
 
 #-----------------
 # delete the CVEs so just the xlsx get emailed

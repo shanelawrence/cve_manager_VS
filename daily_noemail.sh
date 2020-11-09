@@ -1,4 +1,4 @@
-#  A shell script to use if you want the same reports every day
+#  A version of daily.sh that syncs the database, and creates the reports but does not mail them.
 
 ## vars
 user=<user>		#-- Postgres database user
@@ -91,7 +91,7 @@ echo "-------------------------------------------------"
 rm <home/reports/dir>/$today/*.csv
 #-----------------
 
-echo "Emailing the reports "
-./email_xlsx_attach.py
-echo "-------------------------------------------------"
+#echo "Emailing the reports "
+#./email_xlsx_attach.py
+#echo "-------------------------------------------------"
 

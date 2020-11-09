@@ -23,11 +23,11 @@ Modified default cpe queries and reports to sort by published date ASC, CVSS DES
 Modified cpe output to csv function to automatically save a copy in xlsx format for every csv saved  
   
 **File: email_xlsx_attach.py**    
-New python script, authored by Shane Lawrence - shane.lawrence@virtustream.com  
+New python script, authored by Shane Lawrence  
 sends the xlsx reports as email attachments through a local smtp relay  
   
 **File: daily.sh**  
-a bash shell script, authored by Shane Lawrence - shane.lawrence@virtustream.com  
+a bash shell script, authored by Shane Lawrence  
 Puts it all together in something that cron can run daily  
 Automates the following uses of cve_manager.py:  
 * truncates the old database, deletes old datafiles  
@@ -35,8 +35,8 @@ Automates the following uses of cve_manager.py:
 * downloads new raw data file for CPE - the vulnerable products 
 * downloads new top 1000 CWE - the code problems that cause vulnerabilities 
 * jams all of the above into a postgres database  
-* runs the searches relevant to virtustream  
-* creates csv reports of the relevant searches, formatted and sorted for virtustream preferences  
+* runs the searches relevant to you  
+* creates csv reports of the relevant searches, formatted and sorted for your preferences  
 * reads in the csv reports and outputs to xlsx  
 * deletes the csvs  
 Automates the usage of email_xlsx_attach.py  
@@ -98,14 +98,11 @@ Modify email_xlsx_attach.py for your smtp relay, sender, recipients, and reports
 -------------  
   
 **TODO:**  
-Next iteration is to figure out how to incorperate a list of virtustreams critical product inventory,  
-and only create reports that apply to the CPEs on Virtustreams production inventory.  
+Next iteration is to figure out how to incorperate a list of a critical product inventory,  
+and only create reports that apply to the CPEs on product inventory.  
   
 -------------  
 
 *Shane Lawrence*  
 *Sr Advisor, Cloud Platform Security*  
-*Virtustream*  
-*www.virtustream.com*  
-*A Dell Technologies Business*  
-  
+
