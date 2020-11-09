@@ -1,4 +1,5 @@
 **Project Description**
+
 A collection of python apps and shell scripts to email an xlsx spreadsheet of new vulnerabilities in the NIST CVE database and their associated products on a daily schedule. The spreadsheet can then be manually interpreted for risk to your specific organization.
 * Based off of an opensource product on github originally by Antonios Atlasis
 * Syncs the NIST database for CVEs and CPEs locally and  provides basic query capabilities
