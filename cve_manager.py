@@ -370,7 +370,7 @@ def execute_query(myuser,mypassword,myhost,database,cve,score,date,csv_on,output
             print("CVSSv2.x Base Score:\t",selected_cve[5],selected_cve[6])
             print("Description:")
             print(selected_cve[7])
-            print("\r\nPubished Date:\t\t",selected_cve[8])
+            print("\r\nPublished Date:\t\t",selected_cve[8])
             print("Last Modified Date:\t",selected_cve[9])
             cur.execute("SELECT problem FROM cve_problem WHERE cve LIKE '%"+cve+"%'")
             selected_cve = cur.fetchall()
